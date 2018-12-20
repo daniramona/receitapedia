@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Home.master.cs" Inherits="Home" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>RECEITAPEDIA</title>
+    <link href="Style.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="Scripts/jquery-1.9.0.min.js"></script>
+    <script src="Scripts/funcao.js"></script>
+    <script src="Scripts/jquery.js"></script>
+    <script src="Scripts/jquery.maskedinput.js"></script>
+    <script>
+        var form = document.getElementById('formLogin');
+    </script>
+    <script>
+        var count = 0;
+    </script>
+
+    <script type="text/javascript">
+         jQuery(function ($) {
+             $('#ContentPlaceHolder2_txtCPF').mask("999.999.999-99");
+        });
+        </script>
+    <style type="text/css">
+        .auto-style2 {
+            width: 17%;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+	<div style="width: 100%; height: 300px">
+		<div style="width: 15%"></div>
+			<div id="logo" style="width: 70%">
+				<center>
+					<img style="width: 470px" src="images/Logo.png">
+				</center>
+			</div>
+		<div style="width: 15%"></div>
+		<hr />
+	</div>
+	
+	
+	
+	<div id="header">
+		<div id="menu">
+			<ul>
+				
+				<li><a href="Login.aspx">Login</a></li>
+				<li><a href="CadastroReceitas.aspx">Receitas</a></li>
+				<li><a href="CadastroUsuario.aspx">Usuário</a></li>
+				<li><a href="CadastroTipo.aspx">Categorias</a></li>
+                <li><a href="CadastroIngredientes.aspx">Ingredientes</a></li>
+                <li><a href="CadastroUM.aspx">Unidade</a></li>
+			</ul>
+		</div>
+		
+		
+		<div id="search">
+            
+			</div>
+		
+		
+	</div>
+	
+	
+	<div id="page">
+	<div id="page-bgtop">
+		<div id="content">
+			<div class="post">
+				<h2 class="title"><asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">titulo aqui</asp:ContentPlaceHolder></h2>
+				<div class="entry">
+					<p>
+                        <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">conteudo aqui</asp:ContentPlaceHolder>
+				</div>
+			</div>
+		
+			
+			</div>
+		</div>
+		
+		
+		<div id="sidebar">
+			
+				<li>
+					<h2>Lorem Ipsum  </h2>
+					<ul>
+						<li><a href="Default.aspx"><b>Clique para visualizar todas as receitas</b></a>
+						<li><a href="#">lorem ipsum</a></li>
+						<li><a href="#">lorem ipsum</a></li>
+						<li><a href="#">lorem ipsum</a></li>
+						<li><a href="#">lorem ipsum</a></li>
+					</ul>
+				</li>
+				<li>
+					<h2>Lorem Ipsum </h2>
+					<ul>
+						<li><a href="#"></a><a href="#">lorem ipsum</a></li>
+						<li><a href="#">lorem ipsum</a></li>
+						<li><a href="#">lorem ipsum</a></li>
+						<li><a href="#">lorem ipsum</a></li>
+						<li><a href="#">lorem ipsum</a></li>
+						<li><a href="#"></a><a href="#">lorem ipsum</a></li>
+						<li><a href="#">lorem ipsum</a></li>
+						<li><a href="#">lorem ipsum</a></li>
+					</ul>
+				</li>
+			</ul>
+	  </div> 
+		
+		
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	
+	
+	<div id="footer-bgcontent">
+	<div id="footer">
+		<p>  Design e desenvolvimento para LD1A5 - Danielle S. Fernandes</p>
+	</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ReceitaPedia" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-FHKCNSU\SQLEXPRESS;Initial Catalog=ReceitaPedia;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ReceitaPediaConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ingredientes" Member="ingredientes">
+    <Type Name="ingredientes">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ingrediente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="ingredientes_ingredientesReceitas" Member="ingredientesReceitas" ThisKey="id" OtherKey="id_ingrediente" Type="ingredientesReceitas" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ingredientesReceitas" Member="ingredientesReceitas">
+    <Type Name="ingredientesReceitas">
+      <Column Name="id_receita" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_ingrediente" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="qtd" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_unidade" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ingredientes_ingredientesReceitas" Member="ingredientes" ThisKey="id_ingrediente" OtherKey="id" Type="ingredientes" IsForeignKey="true" />
+      <Association Name="receitas_ingredientesReceitas" Member="receitas" ThisKey="id_receita" OtherKey="id" Type="receitas" IsForeignKey="true" />
+      <Association Name="unidadesMedidas_ingredientesReceitas" Member="unidadesMedidas" ThisKey="id_unidade" OtherKey="id_unidade" Type="unidadesMedidas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.pessoa" Member="pessoa">
+    <Type Name="pessoa">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cpf" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="senha" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="nivel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="pessoa_receitas" Member="receitas" ThisKey="id" OtherKey="pessoa" Type="receitas" />
+      <Association Name="pessoa_avaliacao" Member="avaliacao" ThisKey="id" OtherKey="id_pessoa" Type="avaliacao" />
+    </Type>
+  </Table>
+  <Table Name="dbo.receitas" Member="receitas">
+    <Type Name="receitas">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="receita" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="pessoa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tipo_receita" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="preparo" Type="System.String" DbType="VarChar(2000) NOT NULL" CanBeNull="false" />
+      <Column Name="data_postagem" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="receitas_ingredientesReceitas" Member="ingredientesReceitas" ThisKey="id" OtherKey="id_receita" Type="ingredientesReceitas" />
+      <Association Name="receitas_avaliacao" Member="avaliacao" ThisKey="id" OtherKey="id_receita" Type="avaliacao" />
+      <Association Name="pessoa_receitas" Member="pessoa1" ThisKey="pessoa" OtherKey="id" Type="pessoa" IsForeignKey="true" />
+      <Association Name="tipoReceitas_receitas" Member="tipoReceitas" ThisKey="tipo_receita" OtherKey="id" Type="tipoReceitas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tipoReceitas" Member="tipoReceitas">
+    <Type Name="tipoReceitas">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipoReceita" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="tipoReceitas_receitas" Member="receitas" ThisKey="id" OtherKey="tipo_receita" Type="receitas" />
+    </Type>
+  </Table>
+  <Table Name="dbo.unidadesMedidas" Member="unidadesMedidas">
+    <Type Name="unidadesMedidas">
+      <Column Name="id_unidade" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="unidade" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="unidadesMedidas_ingredientesReceitas" Member="ingredientesReceitas" ThisKey="id_unidade" OtherKey="id_unidade" Type="ingredientesReceitas" />
+    </Type>
+  </Table>
+  <Table Name="dbo.avaliacao" Member="avaliacao">
+    <Type Name="avaliacao">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_receita" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_pessoa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nota" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="pessoa_avaliacao" Member="pessoa" ThisKey="id_pessoa" OtherKey="id" Type="pessoa" IsForeignKey="true" />
+      <Association Name="receitas_avaliacao" Member="receitas" ThisKey="id_receita" OtherKey="id" Type="receitas" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

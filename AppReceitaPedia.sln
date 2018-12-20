@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AppReceitaPedia", ".", "{54EC90C2-175C-4A26-9AB9-825D34569DC7}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63047"
+		Debug.AspNetCompiler.PhysicalPath = "E:\Dani Ramona\Documents\IFSP\MARCOS\LD1A5\AppReceitaPedia\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63047\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63047"
+		Release.AspNetCompiler.PhysicalPath = "E:\Dani Ramona\Documents\IFSP\MARCOS\LD1A5\AppReceitaPedia\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63047\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63047"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54EC90C2-175C-4A26-9AB9-825D34569DC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54EC90C2-175C-4A26-9AB9-825D34569DC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F779951-AC30-4CAD-905F-1747521422FB}
+	EndGlobalSection
+EndGlobal
